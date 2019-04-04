@@ -1,7 +1,7 @@
 "use strict";
 
 // var locUrl = "https://ipapi.co/74.207.62.6/json/";
-var locUrl = "http://www.geoplugin.net/json.gp"
+var locUrl = "https://www.geoplugin.net/json.gp"
 var apiKey = "be01eab3dff98198cc699228d54aee01";
 var apiKey2 = "b8f381522463f5ee0c04df3bfca0ca15";//josh's key in case of too many requests
 var conversionapyKey = "v00wb6EzD4xv6ZbTmofXJp5gNo4rkKYCM4g8KxTWgGcqQLvs";
@@ -87,7 +87,7 @@ function loadFavorites(){ // load favorites from localStorage in "favoriteLocati
 }
 
 async function getWeather(location) {//returns dataArray of weather data from given url-(link to API of specified location(weatherUrl))
-    let weatherUrl = "http://api.openweathermap.org/data/2.5/weather?q=" + encodeURI(location) + (",%20United%20States") + "&APPID=" + encodeURI(apiKey2);
+    let weatherUrl = "https://api.openweathermap.org/data/2.5/weather?q=" + encodeURI(location) + (",%20United%20States") + "&APPID=" + encodeURI(apiKey2);
     let currW = await getData(weatherUrl);//Uses link defined by location api to retrieve data from API
     let dataArray=[];
     //These variables are the important pieces of weather data we will implement:
@@ -135,7 +135,7 @@ function onEnter(event) {
 function populateMainData(dataArray){
     currLocation=dataArray[9];
     document.getElementById("location").innerHTML = dataArray[0];
-    document.getElementById("pic").src = "http://openweathermap.org/img/w/"+dataArray[2]+".png";
+    document.getElementById("pic").src = "https://openweathermap.org/img/w/"+dataArray[2]+".png";
     document.getElementById("temp").innerHTML = round(kelvinToFahrenheit(dataArray[3]), 1) + "&deg;F";
     document.getElementById("high").innerHTML = round(kelvinToFahrenheit(dataArray[4]), 1);
     document.getElementById("low").innerHTML = round(kelvinToFahrenheit(dataArray[5]), 1);
