@@ -1,0 +1,121 @@
+header, footer {
+    color: white;
+    background-color: #005fff;
+    text-align: center;
+    padding: 20px;
+    float:left;
+    width:100%;
+}
+
+#current-weather{
+    /*border: solid black;*/
+    float:left;
+    width:70%;
+    border-left: 1px solid #efefef;
+    border-right: 1px solid #efefef;
+}
+
+#fav{
+    float: left;
+    width:15%;
+    /*border: solid black;*/
+}
+
+#fav h3, #extra h3, #location{
+    text-align: center;
+}
+
+#extra{
+    float: left;
+    width:15%;
+    /*border: solid black;*/
+}
+
+#important{
+    width: 50%;
+    height: 15%;
+    margin: 0 auto;
+    /*border: solid;*/
+    text-align: center;
+    padding-top:0;
+}
+
+#hl{
+    /*border: solid;*/
+    margin: 0 auto;
+    width:20%;
+    text-align: center;
+    padding-bottom: 20px;
+}
+
+#favbut{
+    text-align: center;
+    margin-bottom:10px;
+}
+
+#location{
+    margin-top:0px;
+    margin-bottom: 2px;
+}
+
+img, #temp{
+    display: inline-block;
+}
+
+img{
+    width: 100px;
+    height:70px;
+}
+
+#temp{
+    padding-bottom:20px;
+    font-size: 400%;
+}
+
+#high, #low, #di{
+    display: inline-block;
+    margin: 0 auto;
+}
+
+#locationInput {
+    margin: 20px auto;
+    width: 400px;
+}
+
+#humidity, #sunrise, #sunset {
+    text-align: right;
+}
+
+#day {
+    margin-bottom:0px;
+    text-align: center;
+    margin-top:30px;
+}
+
+#bDay{
+    border-top: 1px solid #efefef;
+    float:left;
+    width:100%;
+    padding: 20px;
+}
+#bDay h1, #peeps{
+    text-align: center;
+    list-style-type:none;
+}
+
+#peeps{
+    margin:0 auto;
+    width:50%;
+    padding: 0;
+}
+
+body{
+    background-color: white;
+}
+
+main{
+    float:left;
+    width:100%;
+    margin:0 auto;
+    /*height:600px;*/
+}
