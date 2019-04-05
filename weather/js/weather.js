@@ -1,7 +1,7 @@
 "use strict";
 
 // var locUrl = "https://ipapi.co/74.207.62.6/json/";
-var locUrl = "https://www.geoplugin.net/json.gp"
+var locUrl = "http://www.geoplugin.net/json.gp"
 var apiKey = "be01eab3dff98198cc699228d54aee01";
 var apiKey2 = "b8f381522463f5ee0c04df3bfca0ca15";//josh's key in case of too many requests
 var conversionapyKey = "v00wb6EzD4xv6ZbTmofXJp5gNo4rkKYCM4g8KxTWgGcqQLvs";
