@@ -8,7 +8,7 @@ header, footer {
 }
 
 #current-weather{
-    float:left;
+    float: left;
     width:70%;
     border-left: 1px solid #dfdfdf;
     border-right: 1px solid #dfdfdf;
@@ -19,16 +19,35 @@ header, footer {
     float: left;
     width:15%;
     padding: 10px;
+    /*margin-right: -1px;*/
+    /*border-right: 1px solid #dfdfdf;*/
 }
 
-#fav h3, #extra h3, #location{
+#fav h3, #extra h3, #city{
     text-align: center;
 }
 
-#extra{
+#favoriteList {
+    list-style: none;
+    padding: 0px;
+    margin: 0px;
+}
+
+#favoriteList li {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+#favoriteList li a {
+    text-decoration: none;
+}
+
+#extra {
     float: left;
-    width:15%;
+    width: 15%;
     padding: 10px;
+    /*margin-left: -1px;*/
+    /*border-left: 1px solid #dfdfdf;*/
 }
 
 #important{
@@ -52,10 +71,15 @@ header, footer {
     margin-bottom:10px;
 }
 
-#location{
+#city {
+    margin-top: 10px;
+    margin-bottom: 20px; /* 10px */
+}
+
+/*#region {
     margin-top: 10px;
     margin-bottom: 20px;
-}
+}*/
 
 img, #temp{
     display: inline-block;

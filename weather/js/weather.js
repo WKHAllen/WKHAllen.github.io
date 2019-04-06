@@ -65,13 +65,20 @@ function locationFromParams() { //searches for location already in page
 function populateFavoriteLocations(){ // takes localStorage memory of favoriteLocations dictionary
     let listElement = document.getElementById("favoriteList");
     listElement.innerHTML = "";
+
     for (let item of favoriteLocations) {
         let li = document.createElement("li");
         let a = document.createElement("a");
+        let button = document.createElement("button");
 
         a.setAttribute("href", "?location=" + encodeURI(item)); //URL CHANGE HAPPENS HERE
-        a.innerHTML = item;
-        
+        button.setAttribute("type", "button");
+        button.classList.add("btn");
+        button.classList.add("btn-primary");
+        button.classList.add("btn-block");
+        button.innerHTML = item;
+
+        a.appendChild(button);
         li.appendChild(a);
         listElement.appendChild(li);
     }
@@ -85,7 +92,7 @@ function saveFavorites(){ // save dictionary "favoriteLocations" to Local storag
 
 function loadFavorites(){ // load favorites from localStorage in "favoriteLocations"
     let string = window.localStorage.getItem("favoriteLocations");
-    if(string!=null){
+    if(string !== null){
         favoriteLocations = JSON.parse(string);
         populateFavoriteLocations();
     }
@@ -142,7 +149,7 @@ function onEnter(event) {
 
 function populateMainData(dataArray){
     currLocation=dataArray[9];
-    document.getElementById("location").innerHTML = dataArray[0];
+    document.getElementById("city").innerHTML = dataArray[0];
     document.getElementById("pic").src = "https://openweathermap.org/img/w/"+dataArray[2]+".png";
     document.getElementById("temp").innerHTML = round(kelvinToFahrenheit(dataArray[3]), 1) + "&deg;F";
     document.getElementById("high").innerHTML = round(kelvinToFahrenheit(dataArray[4]), 1);
