@@ -1,7 +1,7 @@
 "use strict";
 
-// var locUrl = "https://ipapi.co/74.207.62.6/json/";
-var locUrl = "http://www.geoplugin.net/json.gp"
+var ipUrl = "https://api.ipify.org/?format=json";
+// var locUrl = "http://www.geoplugin.net/json.gp";
 var apiKey = "be01eab3dff98198cc699228d54aee01";
 var apiKey2 = "b8f381522463f5ee0c04df3bfca0ca15";//josh's key in case of too many requests
 var conversionapyKey = "v00wb6EzD4xv6ZbTmofXJp5gNo4rkKYCM4g8KxTWgGcqQLvs";
@@ -10,9 +10,9 @@ var convertUrl="https://neutrinoapi.com/convert";
 var birthdayUrl="https://raw.githubusercontent.com/alebelcor/celeb-birthdays/master/output/celeb-birthdays.json";
 var favoriteLocations = [];
 var currLocation = "";
-var d=new Date();
-var weekDays = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday"];
-var bDays=["Josh", "Will", "Roman"];
+var d = new Date();
+var weekDays = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+var bDays = ["Josh", "Will", "Roman"];
 var locFromApi;
 
 function addFavorite() {
@@ -34,9 +34,17 @@ async function getBirthdays(date){
     return d[date];
 }
 
+async function getIP() {
+    let ip = await getData(ipUrl);
+    return ip["ip"];
+}
+
 async function getLocation() {
+    let ip = await getIP();
+    let locUrl = "https://ipapi.co/" + ip + "/json/";
     let loc = await getData(locUrl);
-    return [loc["geoplugin_city"], loc["geoplugin_region"]].join(", ").toUpperCase();
+    return [loc["city"], loc["region"]].join(", ").toUpperCase();
+    // return [loc["geoplugin_city"], loc["geoplugin_region"]].join(", ").toUpperCase();
 }
 
 async function getData(url) {
@@ -149,7 +157,6 @@ function changeLocation(){
     loc=loc.toUpperCase();
     let asd = window.location.href
     let base = asd.split("?location=");
-    // console.log(base);
     let url = base[0] + "?location=" + encodeURI(loc);
     window.location.replace(url);
 }
@@ -163,10 +170,7 @@ function formateDateForApi(da){
     if(d.length<2){
         d= "0"+d
     }
-    // console.log(m);
-    // console.log(d);
     let date = m+"-"+d;
-    // console.log(date);
     return date;
 }
 
@@ -184,7 +188,6 @@ function loadDay(da, peopleArray){
 }
 
 function checkAddFavorites() {
-    // console.log(favoriteLocations);
     let favoritesButton = document.getElementById("favbutton");
     if (favoriteLocations.includes(locFromApi)) {
         favoritesButton.innerHTML = "Remove City from Favorites";
