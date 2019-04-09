@@ -6,6 +6,81 @@ header, footer {
 }
 
 main {
-    padding: 20px;
+    padding: 20px 0px;
     text-align: justify;
+}
+
+html {
+    height: 100%;
+    margin: 0;
+}
+
+.flex-body {
+    display: flex;
+    flex-flow: column;
+    height: 100%;
+    margin: 0;
+}
+
+.flex-body > header, .flex-body > footer {
+    flex: 0 1 auto;
+}
+
+.flex-body > main {
+    flex: 1 1 auto;
+}
+
+.flex-container {
+    display: flex;
+    align-items: stretch;
+}
+
+.flex-container > div {
+    width: 0;
+}
+
+#left, #right {
+    flex-grow: 1;
+    padding: 20px;
+}
+
+#middle {
+    flex-grow: 4;
+    padding: 20px;
+    border-left: 1px solid #bfbfbf;
+    border-right: 1px solid #bfbfbf;
+}
+
+.nav-card {
+    background-color: #efefef;
+    padding: 0;
+}
+
+.nav-title {
+    padding: 20px;
+    margin: 0;
+}
+
+.nav-list {
+    list-style: none;
+    padding: 0;
+}
+
+.nav-list li a {
+    background-color: #efefef;
+    display: block;
+    text-decoration: none;
+}
+
+.nav-list li a:hover {
+    background-color: #dfdfdf;
+}
+
+.nav-list li a:active {
+    background-color: #cfcfcf;
+}
+
+.nav-item {
+    padding: 5px 20px;
+    margin: 0;
 }
