@@ -15,7 +15,11 @@
                     <li id="highscore">Highscore: 0</li>
                 </ul>
                 <canvas id="game" width="400" height="400"></canvas>
-                <div id="play-again" class="container game-over invisible">
+                <div id="you-win" class="container overlay invisible">
+                    <h1 class="centered-text">You win!</h1>
+                    <button class="gray-button center" onclick="game.keepPlaying()">Keep playing</button>
+                </div>
+                <div id="play-again" class="container overlay invisible">
                     <h1 class="centered-text">Game over!</h1>
                     <button class="gray-button center" onclick="game.playAgain()">Play again</button>
                 </div>

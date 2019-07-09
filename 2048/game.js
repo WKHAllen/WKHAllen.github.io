@@ -21,6 +21,7 @@ function arraysEqual(arr1, arr2) {
 class Game {
     constructor(fps) {
         this.playing = true;
+        this.won = false;
         this.fps = fps;
         this.board = new Board(document.getElementById("game"), this.fps);
         document.addEventListener("keydown", (event) => this.keyPress(event));
@@ -56,8 +57,27 @@ class Game {
             }
             if (!this.board.canMove()) {
                 this.gameOver();
+            } else if (!this.won && this.board.won()) {
+                this.won = true;
+                this.playerWin();
             }
         }
+    }
+
+    playerWin() {
+        this.playing = false;
+        setTimeout((function() {
+            clearInterval(this.drawInterval);
+            this.board.ctx.fillStyle = "rgba(255, 255, 255, 0.5)";
+            this.board.ctx.fillRect(0, 0, this.board.canvas.width, this.board.canvas.height);
+            document.getElementById("you-win").classList.remove("invisible");
+        }).bind(this), 1000);
+    }
+
+    keepPlaying() {
+        document.getElementById("you-win").classList.add("invisible");
+        this.drawInterval = setInterval(this.board.draw, 1000 / this.fps);
+        this.playing = true;
     }
 
     gameOver() {

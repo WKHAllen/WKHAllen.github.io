@@ -118,6 +118,14 @@ function Board(canvas, fps) {
         return false;
     }).bind(this);
 
+    this.won = (function() {
+        for (let i = 0; i < 4; i++)
+            for (let j = 0; j < 4; j++)
+                if (this.tiles[i][j] === 2048)
+                    return true;
+        return false;
+    }).bind(this);
+
     this.newTile = (function() {
         if (this.countSpacesRemaining() === 0)
             throw "no space for new tile";

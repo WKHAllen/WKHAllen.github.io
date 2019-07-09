@@ -40,7 +40,7 @@ body {
     padding: 8px;
 }
 
-.game-over {
+.overlay {
     -ms-transform: translate(0, -250px);
     transform: translate(0, -250px);
     height: 0;
