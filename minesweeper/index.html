@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Minesweeper</title>
+        <link href="https://fonts.googleapis.com/css?family=Inconsolata&display=swap" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="style.css">
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.3/p5.min.js"></script>
+        <script type="text/javascript" src="game.js"></script>
+        <script type="text/javascript" src="sketch.js"></script>
+    </head>
+    <body>
+        <h1 class="centered-text">Minesweeper</h1>
+        <ul class="inline-list">
+            <li>
+                Width: <span id="width-label">40</span>
+                <input type="range" min="1" max="60" value="40" id="width-slider" onchange="updateWidth();">
+            </li>
+            <li>
+                Height: <span id="height-label">30</span>
+                <input type="range" min="1" max="40" value="30" id="height-slider" onchange="updateHeight();">
+            </li>
+            <li>
+                Difficulty: <span id="difficulty-label">20%</span>
+                <input type="range" min="0" max="100" value="20" id="difficulty-slider" onchange="updateDifficulty();">
+            </li>
+            <li>
+                <button class="gray-button" onclick="newGame();">New Game</button>
+            </li>
+        </ul>
+        <ul class="inline-list">
+            <li>Score: <span id="score">0</span></li>
+            <li>Highscore: <span id="highscore">0</span></li>
+            <li>Time: <span id="time">00:00</span></li>
+        </ul>
+    </body>
+</html>
