@@ -56,6 +56,10 @@ html {
     padding: 0;
 }
 
+.nav-card p {
+    padding: 5px 20px;
+}
+
 .nav-title {
     padding: 20px;
     margin: 0;
