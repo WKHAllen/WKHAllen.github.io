@@ -2,50 +2,65 @@
 <html>
     <head>
         <title>Will Allen</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://fonts.googleapis.com/css?family=Spartan&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
         <link rel="stylesheet" type="text/css" href="css/main.css">
     </head>
-    <body class="flex-body">
+    <body>
         <header>
-            <h1>Will Allen</h1>
+            <h1 class="fade-in">Will Allen</h1>
         </header>
-        <main class="flex-container">
-            <div id="left">
-                <div class="card">
-                    <div class="card-body nav-card">
-                        <h5 class="card-title nav-title">Navigation</h5>
-                        <ul class="nav-list">
-                            <li class="card-text"><a href="weather"><p class="nav-item">Weather</p></a></li>
-                            <li class="card-text"><a href="sudoku"><p class="nav-item">Sudoku Solver</p></a></li>
-                            <li class="card-text"><a href="2048"><p class="nav-item">2048</p></a></li>
-                            <li class="card-text"><a href="minesweeper"><p class="nav-item">Minesweeper</p></a></li>
-                            <li class="card-text"><a href="life"><p class="nav-item">Game of Life</p></a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <div id="middle">
+        <main>
+            <div class="section">
                 <h3>Hello</h3>
-                <p>Hello, I'm Will. I do computer programming.</p>
-                <p>If you're looking for projects I have running on this website, see the left panel. If you're looking for all of my projects, see the right panel for my github. If you're interested in viewing the code for this website, <a href="https://github.com/WKHAllen/WKHAllen.github.io" target="_blank">click here</a>.</p>
-                <h3>Indigio</h3>
-                <p>Indigio is one of my more recent projects. It is a chatting application deployed on the web at <a href="https://www.indigio.co" target="_blank">https://www.indigio.co</a>. It is also <a href="https://www.indigio.co/downloads/" target="_blank">available as a desktop app</a>. I invite you to try it out and let me know if you spot any problems. If you do happen to find something, please <a href="https://github.com/WKHAllen/Indigio/issues" target="_blank">report it here</a>.</p>
-                <h3>Contact</h3>
-                <p>If you would like to contact me, please do so via email: <a href="mailto:wkhallen@gmail.com">wkhallen@gmail.com</a></p>
+                <p>Hi, I'm Will. I do computer programming.</p>
+                <p>The source code for this website is kept <a href="https://github.com/WKHAllen/WKHAllen.github.io" target="_blank">here</a>, in case you're interested.</p>
             </div>
-            <div id="right">
-                <div class="card">
-                    <div class="card-body nav-card">
-                        <h5 class="card-title nav-title">Projects</h5>
-                        <p class="card-text" style="margin-bottom: 1rem;">
-                            Check out some more of my programming projects on <a href="https://github.com/WKHAllen" target="_blank">Github</a>.
-                        </p>
-                    </div>
+
+            <div class="section">
+                <h3>Contact</h3>
+                <p>If you would like to contact me, please do so via email: <a href="mailto:wkhallen@gmail.com">wkhallen@gmail.com</a>.</p>
+            </div>
+
+            <div class="section">
+                <h3>Projects</h3>
+                <p>My projects can be found on <a href="https://github.com/WKHAllen" target="_blank">my Github page</a>. Here are a few of them:</p>
+                <div class="inline">
+                    <span class="inline-header"><a href="https://github.com/WKHAllen/NorseBooks" target="_blank">NorseBooks</a></span>
+                    <span class="inline-body">A place for Luther College students to resell textbooks.</span>
                 </div>
+                <div class="inline">
+                    <span class="inline-header"><a href="https://github.com/WKHAllen/Txtr" target="_blank">Txtr</a></span>
+                    <span class="inline-body">A simple chatting app.</span>
+                </div>
+                <div class="inline">
+                    <span class="inline-header"><a href="https://github.com/WKHAllen/cdtp" target="_blank">CDTP</a></span>
+                    <span class="inline-body">A cross platform networking library written in C.</span>
+                </div>
+                <div class="inline">
+                    <span class="inline-header"><a href="https://github.com/WKHAllen/dtplib" target="_blank">dtplib</a></span>
+                    <span class="inline-body">A cross platform networking library written in Python.</span>
+                </div>
+                <div class="inline">
+                    <span class="inline-header"><a href="https://github.com/WKHAllen/CStructure" target="_blank">CStructures</a></span>
+                    <span class="inline-body">A collection of data structures in C, for my own benefit.</span>
+                </div>
+                <div class="inline">
+                    <span class="inline-header"><a href="https://github.com/WKHAllen/Unscramble" target="_blank">Unscramble</a></span>
+                    <span class="inline-body">A C++ program that unscrambles scrambled words.</span>
+                </div>
+            </div>
+
+            <div class="section">
+                <h3>Local Projects</h3>
+                <p>I've got a few projects running on this site. Feel free to check them out:</p>
+                <div class="inline"><span class="inline-header"><a href="weather">Weather Forecast</a></span></div>
+                <div class="inline"><span class="inline-header"><a href="sudoku">Sudoku Solver</a></span></div>
+                <div class="inline"><span class="inline-header"><a href="2048">2048</a></span></div>
+                <div class="inline"><span class="inline-header"><a href="minesweeper">Minesweeper</a></span></div>
+                <div class="inline"><span class="inline-header"><a href="life">Game of Life</a></span></div>
             </div>
         </main>
-        <footer>
-            &copy;2019 Will Allen
-        </footer>
     </body>
 </html>

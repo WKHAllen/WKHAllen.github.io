@@ -1,90 +1,72 @@
-header, footer {
-    color: white;
-    background: #005fff;
+body {
+    color: #dfdfdf;
+    background-color: #1f273f;
+    font-family: 'Spartan', sans-serif;
+}
+
+header {
+    background-color: #2f374f;
     padding: 20px;
     text-align: center;
 }
 
 main {
-    padding: 20px 0px;
+    padding: 20px;
+    margin: auto;
     text-align: justify;
+    max-width: 1000px;
 }
 
-html {
-    height: 100%;
-    margin: 0;
+::-webkit-scrollbar {
+    width: 8px;
 }
 
-.flex-body {
-    display: flex;
-    flex-flow: column;
-    height: 100%;
-    margin: 0;
+::-webkit-scrollbar-track {
+    background-color: rgba(0, 0, 0, 0);
 }
 
-.flex-body > header, .flex-body > footer {
-    flex: 0 1 auto;
+::-webkit-scrollbar-thumb {
+    background-color: #003f8f;
+    border-radius: 9999px;
 }
 
-.flex-body > main {
-    flex: 1 1 auto;
+::-webkit-scrollbar-thumb:hover {
+    background-color: #00479f;
 }
 
-.flex-container {
-    display: flex;
-    align-items: stretch;
+::-webkit-scrollbar-thumb:active {
+    background-color: #004faf;
 }
 
-.flex-container > div {
-    width: 0;
+h1, h2, h3, h4, h5, h6 {
+    font-weight: bold;
 }
 
-#left, #right {
-    flex-grow: 1;
-    padding: 20px;
+h1, h2, h3, h4, h5, h6, p {
+    margin-top: 24px;
+    margin-bottom: 24px;
+    line-height: 32px;
 }
 
-#middle {
-    flex-grow: 4;
-    padding: 20px;
-    border-left: 1px solid #bfbfbf;
-    border-right: 1px solid #bfbfbf;
+.section {
+    margin: 64px 0px;
 }
 
-.nav-card {
-    background-color: #efefef;
-    padding: 0;
+.inline {
+    margin-top: 8px;
+    margin-bottom: 8px;
 }
 
-.nav-card p {
-    padding: 5px 20px;
+.inline .inline-header {
+    font-size: larger;
+    font-weight: 500;
+    padding-right: 12px;
 }
 
-.nav-title {
-    padding: 20px;
-    margin: 0;
+.inline .inline-body {
+    font-size: normal;
 }
 
-.nav-list {
-    list-style: none;
-    padding: 0;
-}
-
-.nav-list li a {
-    background-color: #efefef;
-    display: block;
+a:hover, a:active {
     text-decoration: none;
-}
-
-.nav-list li a:hover {
-    background-color: #dfdfdf;
-}
-
-.nav-list li a:active {
-    background-color: #cfcfcf;
-}
-
-.nav-item {
-    padding: 5px 20px;
-    margin: 0;
 }
