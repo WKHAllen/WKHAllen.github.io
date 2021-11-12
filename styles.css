@@ -1,7 +1,19 @@
+:root {
+  --phi: 1.61803399;
+  --grass-color: rgb(39, 109, 11);
+  --grass-opacity: 0.075;
+  --grass-1-primary: hsla(103, 88%, 42%, var(--grass-opacity));
+  --grass-1-secondary: hsla(71, 53%, 24%, var(--grass-opacity));
+  --grass-2-primary: hsla(103, 53%, 24%, var(--grass-opacity));
+  --grass-2-secondary: hsla(71, 88%, 42%, var(--grass-opacity));
+  --grass-repeat-width: 10rem;
+}
+
 body {
   margin: 0;
   font-family: "Ubuntu", sans-serif;
   user-select: none;
+  background-color: black;
 }
 
 a {
@@ -17,4 +29,43 @@ a:hover {
 
 a:active {
   color: #0000bf;
+}
+
+.landscape {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.background {
+  flex-grow: 1;
+}
+
+.foreground {
+  flex-grow: 1;
+  background-color: var(--grass-color);
+}
+
+.grass {
+  width: 100%;
+  height: 100%;
+  background: repeating-linear-gradient(
+      calc(var(--phi) * 360deg),
+      var(--grass-1-primary) var(--grass-repeat-width),
+      var(--grass-1-secondary) calc(2 * var(--grass-repeat-width)),
+      var(--grass-1-primary) calc(3 * var(--grass-repeat-width))
+    ),
+    repeating-radial-gradient(
+      circle,
+      var(--grass-2-primary) var(--grass-repeat-width),
+      var(--grass-2-secondary) calc(2 * var(--grass-repeat-width)),
+      var(--grass-2-primary) calc(3 * var(--grass-repeat-width))
+    ),
+    repeating-linear-gradient(
+      calc(2 * var(--phi) * 360deg),
+      var(--grass-2-primary) var(--grass-repeat-width),
+      var(--grass-2-secondary) calc(2 * var(--grass-repeat-width)),
+      var(--grass-2-primary) calc(3 * var(--grass-repeat-width))
+    );
 }
