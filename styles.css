@@ -1,12 +1,18 @@
 :root {
   --phi: 1.61803399;
-  --grass-color: rgb(39, 109, 11);
+  --grass-color: #276d0b;
   --grass-opacity: 0.075;
   --grass-1-primary: hsla(103, 88%, 42%, var(--grass-opacity));
   --grass-1-secondary: hsla(71, 53%, 24%, var(--grass-opacity));
   --grass-2-primary: hsla(103, 53%, 24%, var(--grass-opacity));
   --grass-2-secondary: hsla(71, 88%, 42%, var(--grass-opacity));
   --grass-repeat-width: 10rem;
+  --lake-primary: #0a37b3;
+  --lake-secondary: #3232c4;
+  --lake-repeat-width: 5rem;
+  --lake-angle: 190deg;
+  --lake-shimmer-move-coefficient: -1.01519;
+  --lake-shimmer-move-speed: 2;
 }
 
 body {
@@ -80,10 +86,31 @@ a:active {
   width: 120%;
   aspect-ratio: 3;
   border-radius: 70% 50%;
-  background: #5757c7;
-  background: linear-gradient(190deg, #5757c7 0%, #2b3343 100%);
+  background: var(--lake-primary);
+  background: repeating-linear-gradient(
+    190deg,
+    var(--lake-primary) var(--lake-repeat-width),
+    var(--lake-secondary) calc(2 * var(--lake-repeat-width)),
+    var(--lake-primary) calc(3 * var(--lake-repeat-width))
+  );
+  background-size: 100% 200%;
   box-shadow: inset 0 0 16px rgba(0, 0, 0, 0.5);
   overflow: hidden;
+  animation: 5s linear 0s infinite water-shimmer;
+}
+
+@keyframes water-shimmer {
+  0% {
+    background-position: 0 0;
+  }
+
+  100% {
+    background-position: 0
+      calc(
+        var(--lake-shimmer-move-coefficient) * var(--lake-repeat-width) * 2 *
+          var(--lake-shimmer-move-speed)
+      );
+  }
 }
 
 .rock {
@@ -122,6 +149,7 @@ a:active {
   animation: 10s linear 0s infinite ripple;
   border-radius: 50%;
   aspect-ratio: 3;
+  transform: translate(-50%, -40%);
 }
 
 @keyframes ripple {
@@ -137,22 +165,22 @@ a:active {
 }
 
 .ripple-1 {
-  left: 34%;
-  top: 20%;
-  transform: translate(-50%, -40%);
+  left: 29%;
+  top: 16%;
+  animation-duration: calc((var(--phi) - 1) * 10s);
   animation-delay: calc((2 - var(--phi)) * 10s);
 }
 
 .ripple-2 {
-  right: 41%;
-  top: 25%;
-  transform: translate(50%, -40%);
+  left: 41%;
+  top: 27%;
+  animation-duration: 10s;
   animation-delay: calc((2 - var(--phi)) * 2 * 10s);
 }
 
 .ripple-3 {
-  right: 29%;
-  top: 12%;
-  transform: translate(50%, -40%);
+  left: 69%;
+  top: 18%;
+  animation-duration: calc((2 - var(--phi)) * 10s);
   animation-delay: calc((2 - var(--phi)) * 3 * 10s);
 }
