@@ -13,6 +13,12 @@
   --lake-angle: 190deg;
   --lake-shimmer-move-coefficient: -1.01519;
   --lake-shimmer-move-speed: 2;
+  --wood-color: #553619;
+  --leaf-color: #0b530b;
+  --bush-size: 40px;
+  --bush-width-coefficient: 1.5;
+  --bush-base-width: 10px;
+  --bush-base-height: 60px;
 }
 
 body {
@@ -78,6 +84,80 @@ a:active {
     );
 }
 
+.bush {
+  position: absolute;
+  background-color: var(--wood-color);
+  width: var(--bush-base-width);
+  height: var(--bush-base-height);
+  border-radius: 100vw;
+}
+
+.bush::before {
+  content: "";
+  position: absolute;
+  background-color: var(--leaf-color);
+  width: var(--bush-size);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  top: calc(-0.5 * var(--bush-size));
+  left: calc(-0.5 * var(--bush-size) + 0.5 * var(--bush-base-width));
+}
+
+.bush::after {
+  content: "";
+  position: absolute;
+  background-color: var(--leaf-color);
+  width: calc(var(--bush-width-coefficient) * var(--bush-size));
+  height: var(--bush-size);
+  border-radius: 100vw;
+  top: 0;
+  left: calc(
+    -0.5 * var(--bush-width-coefficient) * var(--bush-size) + 0.5 * var(--bush-base-width)
+  );
+}
+
+.bush-1 {
+  top: 46%;
+  left: 4%;
+  transform: scale(1.25);
+}
+
+.bush-2 {
+  top: 13%;
+  left: 9%;
+  transform: scale(0.8);
+}
+
+.bush-3 {
+  top: 38%;
+  left: 14%;
+  transform: scale(1.1);
+}
+
+.bush-4 {
+  top: 20%;
+  left: 22%;
+  transform: scale(1);
+}
+
+.bush-5 {
+  top: 18%;
+  right: 18%;
+  transform: scale(1);
+}
+
+.bush-6 {
+  top: 35%;
+  right: 10%;
+  transform: scale(1.2);
+}
+
+.bush-7 {
+  top: 12%;
+  right: 4%;
+  transform: scale(0.85);
+}
+
 .lake {
   position: absolute;
   bottom: -25%;
@@ -88,7 +168,7 @@ a:active {
   border-radius: 70% 50%;
   background: var(--lake-primary);
   background: repeating-linear-gradient(
-    190deg,
+    var(--lake-angle),
     var(--lake-primary) var(--lake-repeat-width),
     var(--lake-secondary) calc(2 * var(--lake-repeat-width)),
     var(--lake-primary) calc(3 * var(--lake-repeat-width))
