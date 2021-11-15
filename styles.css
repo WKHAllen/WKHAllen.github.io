@@ -168,6 +168,20 @@ a:active {
   animation-delay: 1s;
 }
 
+.bush-shadow {
+  position: absolute;
+  bottom: calc(-0.25 * var(--bush-size));
+  left: calc(-0.5 * var(--bush-size) + 0.5 * var(--bush-base-width));
+  width: var(--bush-size);
+  height: calc(0.5 * var(--bush-size));
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 50%;
+  z-index: -1;
+  transform: rotate(-30deg)
+    translateX(calc(-0.5 * var(--bush-size) + 0.5 * var(--bush-base-width)));
+  box-shadow: 0 0 12px 12px rgba(0, 0, 0, 0.5);
+}
+
 @keyframes sway {
   0% {
     transform: translateY(var(--sway-translate)) rotate(0deg)
@@ -272,7 +286,7 @@ a:active {
   bottom: -1rem;
   width: 12rem;
   height: 6rem;
-  border-radius: 50% 70% 40% 0;
+  border-radius: 30% 50% 30% 0;
 }
 
 .rock-2 {
@@ -280,7 +294,7 @@ a:active {
   bottom: -1rem;
   width: 7rem;
   height: 11rem;
-  border-radius: 70% 60% 0 40%;
+  border-radius: 40% 30% 0 40%;
 }
 
 .rock-3 {
