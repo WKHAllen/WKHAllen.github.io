@@ -19,6 +19,8 @@
   --bush-width-coefficient: 1.5;
   --bush-base-width: 10px;
   --bush-base-height: 60px;
+  --sway-amount: 5deg;
+  --sway-translate: 25px;
 }
 
 body {
@@ -90,6 +92,7 @@ a:active {
   width: var(--bush-base-width);
   height: var(--bush-base-height);
   border-radius: 100vw;
+  animation: 20s ease-in-out 0s infinite sway;
 }
 
 .bush::before {
@@ -119,43 +122,107 @@ a:active {
 .bush-1 {
   top: 46%;
   left: 4%;
-  transform: scale(1.25);
+  zoom: 1.25;
+  animation-delay: 3s;
 }
 
 .bush-2 {
   top: 13%;
   left: 9%;
-  transform: scale(0.8);
+  zoom: 0.8;
+  animation-delay: 0s;
 }
 
 .bush-3 {
   top: 38%;
   left: 14%;
-  transform: scale(1.1);
+  zoom: 1.1;
+  animation-delay: 6s;
 }
 
 .bush-4 {
   top: 20%;
   left: 22%;
-  transform: scale(1);
+  zoom: 1;
+  animation-delay: 2s;
 }
 
 .bush-5 {
   top: 18%;
   right: 18%;
-  transform: scale(1);
+  zoom: 1;
+  animation-delay: 5s;
 }
 
 .bush-6 {
   top: 35%;
   right: 10%;
-  transform: scale(1.2);
+  zoom: 1.2;
+  animation-delay: 4s;
 }
 
 .bush-7 {
   top: 12%;
   right: 4%;
-  transform: scale(0.85);
+  zoom: 0.85;
+  animation-delay: 1s;
+}
+
+@keyframes sway {
+  0% {
+    transform: translateY(var(--sway-translate)) rotate(0deg)
+      translateY(calc(-1 * var(--sway-translate)));
+  }
+
+  10% {
+    transform: translateY(var(--sway-translate)) rotate(var(--sway-amount))
+      translateY(calc(-1 * var(--sway-translate)));
+  }
+
+  25% {
+    transform: translateY(var(--sway-translate))
+      rotate(calc(-0.5 * var(--sway-amount)))
+      translateY(calc(-1 * var(--sway-translate)));
+  }
+
+  30% {
+    transform: translateY(var(--sway-translate))
+      rotate(calc(0.5 * var(--sway-amount)))
+      translateY(calc(-1 * var(--sway-translate)));
+  }
+
+  40% {
+    transform: translateY(var(--sway-translate))
+      rotate(calc(-0.75 * var(--sway-amount)))
+      translateY(calc(-1 * var(--sway-translate)));
+  }
+
+  50% {
+    transform: translateY(var(--sway-translate)) rotate(var(--sway-amount))
+      translateY(calc(-1 * var(--sway-translate)));
+  }
+
+  55% {
+    transform: translateY(var(--sway-translate))
+      rotate(calc(0.25 * var(--sway-amount)))
+      translateY(calc(-1 * var(--sway-translate)));
+  }
+
+  60% {
+    transform: translateY(var(--sway-translate))
+      rotate(calc(0.25 * var(--sway-amount)))
+      translateY(calc(-1 * var(--sway-translate)));
+  }
+
+  65% {
+    transform: translateY(var(--sway-translate)) rotate(var(--sway-amount))
+      translateY(calc(-1 * var(--sway-translate)));
+  }
+
+  75% {
+    transform: translateY(var(--sway-translate)) rotate(0deg)
+      translateY(calc(-1 * var(--sway-translate)));
+  }
 }
 
 .lake {
