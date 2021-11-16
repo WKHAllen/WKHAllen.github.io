@@ -1,5 +1,14 @@
 :root {
   --phi: 1.61803399;
+  --sky-color: #b2b9bb;
+  --sky-opacity: 0.0375;
+  --sky-1-primary: hsla(195, 16%, 85%, var(--sky-opacity));
+  --sky-1-secondary: hsla(196, 6%, 34%, var(--sky-opacity));
+  --sky-2-primary: hsla(195, 6%, 34%, var(--sky-opacity));
+  --sky-2-secondary: hsla(196, 16%, 85%, var(--sky-opacity));
+  --sky-repeat-width: 5rem;
+  --mountain-primary: #101214;
+  --mountain-secondary: #5c656b;
   --grass-color: #276d0b;
   --grass-opacity: 0.075;
   --grass-1-primary: hsla(103, 88%, 42%, var(--grass-opacity));
@@ -55,6 +64,76 @@ a:active {
 
 .background {
   flex-grow: 1;
+  background-color: var(--sky-color);
+  position: relative;
+}
+
+.sky {
+  width: 100%;
+  height: 100%;
+  background: repeating-linear-gradient(
+      calc(4 * var(--phi) * 360deg),
+      var(--sky-1-primary) var(--sky-repeat-width),
+      var(--sky-1-secondary) calc(2 * var(--sky-repeat-width)),
+      var(--sky-1-primary) calc(3 * var(--sky-repeat-width))
+    ),
+    repeating-radial-gradient(
+      circle,
+      var(--sky-2-primary) var(--sky-repeat-width),
+      var(--sky-2-secondary) calc(2 * var(--sky-repeat-width)),
+      var(--sky-2-primary) calc(3 * var(--sky-repeat-width))
+    ),
+    repeating-linear-gradient(
+      calc(5 * var(--phi) * 360deg),
+      var(--sky-2-primary) var(--sky-repeat-width),
+      var(--sky-2-secondary) calc(2 * var(--sky-repeat-width)),
+      var(--sky-2-primary) calc(3 * var(--sky-repeat-width))
+    );
+}
+
+.mountain {
+  position: absolute;
+  bottom: -100%;
+  height: 100%;
+  aspect-ratio: 1;
+  border-radius: 30px 0 0 0;
+  transform: rotate(45deg) translateY(-50%);
+  background: var(--mountain-primary);
+  background: linear-gradient(
+    160deg,
+    var(--mountain-secondary) 0%,
+    var(--mountain-primary) 100%
+  );
+}
+
+.mountain-1 {
+  transform: rotate(45deg) translateY(-50%) scale(1.2);
+  left: -11%;
+}
+
+.mountain-2 {
+  transform: rotate(45deg) translateY(-50%) scale(1);
+  left: -18%;
+}
+
+.mountain-3 {
+  transform: rotate(45deg) translateY(-50%) scale(0.85);
+  left: -2%;
+}
+
+.mountain-4 {
+  transform: rotate(45deg) translateY(-50%) scale(1.1);
+  right: 4%;
+}
+
+.mountain-5 {
+  transform: rotate(45deg) translateY(-50%) scale(0.9);
+  right: -3%;
+}
+
+.mountain-6 {
+  transform: rotate(45deg) translateY(-50%) scale(0.75);
+  right: 13%;
 }
 
 .foreground {
@@ -148,22 +227,22 @@ a:active {
 }
 
 .bush-5 {
-  top: 18%;
-  right: 18%;
+  top: 16%;
+  right: 20%;
   zoom: 1;
   animation-delay: 5s;
 }
 
 .bush-6 {
-  top: 35%;
-  right: 10%;
+  top: 25%;
+  right: 11%;
   zoom: 1.2;
   animation-delay: 4s;
 }
 
 .bush-7 {
-  top: 12%;
-  right: 4%;
+  top: 11%;
+  right: 3%;
   zoom: 0.85;
   animation-delay: 1s;
 }
@@ -174,12 +253,12 @@ a:active {
   left: calc(-0.5 * var(--bush-size) + 0.5 * var(--bush-base-width));
   width: var(--bush-size);
   height: calc(0.5 * var(--bush-size));
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.375);
   border-radius: 50%;
   z-index: -1;
-  transform: rotate(-30deg)
+  transform: scale(0.8) rotate(-50deg)
     translateX(calc(-0.5 * var(--bush-size) + 0.5 * var(--bush-base-width)));
-  box-shadow: 0 0 12px 12px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 0 12px 12px rgba(0, 0, 0, 0.375);
 }
 
 @keyframes sway {
