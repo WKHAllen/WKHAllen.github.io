@@ -1,6 +1,6 @@
 :root {
   --phi: 1.61803399;
-  --sky-color: #b2b9bb;
+  --sky-color: #979ea0;
   --sky-opacity: 0.0375;
   --sky-1-primary: hsla(195, 16%, 85%, var(--sky-opacity));
   --sky-1-secondary: hsla(196, 6%, 34%, var(--sky-opacity));
@@ -89,6 +89,29 @@ a:active {
       var(--sky-2-secondary) calc(2 * var(--sky-repeat-width)),
       var(--sky-2-primary) calc(3 * var(--sky-repeat-width))
     );
+}
+
+.sun {
+  position: absolute;
+  height: 30%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  top: 20px;
+  right: 20px;
+  background: #be6d17;
+  background: radial-gradient(circle, #ffa600 0%, #f0cd21 100%);
+  box-shadow: 0 0 12px 12px rgba(211, 180, 25, 0.75);
+  animation: 2s ease-in-out 0s infinite alternate glow;
+}
+
+@keyframes glow {
+  from {
+    box-shadow: 0 0 4px 4px rgba(211, 180, 25, 0.75);
+  }
+
+  to {
+    box-shadow: 0 0 16px 16px rgba(211, 180, 25, 0.75);
+  }
 }
 
 .mountain {
