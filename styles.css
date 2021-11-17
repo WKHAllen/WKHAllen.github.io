@@ -9,6 +9,13 @@
   --sky-repeat-width: 5rem;
   --mountain-primary: #101214;
   --mountain-secondary: #5c656b;
+  --cloud-color: rgba(255, 255, 255, 0.5);
+  --cloud-width: 350px;
+  --cloud-num: 5;
+  --cloud-animation-offset: 15s;
+  --cloud-animation-duration: calc(
+    var(--cloud-num) * var(--cloud-animation-offset)
+  );
   --grass-color: #276d0b;
   --grass-opacity: 0.075;
   --grass-1-primary: hsla(103, 88%, 42%, var(--grass-opacity));
@@ -157,6 +164,90 @@ a:active {
 .mountain-6 {
   transform: rotate(45deg) translateY(-50%) scale(0.75);
   right: 13%;
+}
+
+.cloud {
+  position: absolute;
+  top: 10px;
+  left: 100%;
+  width: var(--cloud-width);
+  cursor: default;
+  animation: var(--cloud-animation-duration) linear 0s infinite running
+    cloud-move;
+}
+
+@keyframes cloud-move {
+  0% {
+    left: calc(-1 * var(--cloud-width));
+  }
+
+  50% {
+    left: 100%;
+  }
+
+  100% {
+    left: 100%;
+  }
+}
+
+.cloud:hover {
+  text-decoration: none;
+}
+
+.cloud:nth-child(4n) {
+  top: 10px;
+}
+
+.cloud:nth-child(4n + 1) {
+  top: 30px;
+}
+
+.cloud:nth-child(4n + 2) {
+  top: 20px;
+}
+
+.cloud:nth-child(4n + 3) {
+  top: 40px;
+}
+
+.cloud-title {
+  background-color: var(--cloud-color);
+  padding: 16px 16px 0 16px;
+  margin: 0 48px;
+  border-radius: 32px 32px 0 0;
+  display: inline-block;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 1.1em;
+}
+
+.cloud-body {
+  background-color: var(--cloud-color);
+  padding: 20px 24px;
+  border-radius: 48px;
+  cursor: pointer;
+  font-weight: normal;
+  font-size: 0.95em;
+}
+
+.cloud-1 {
+  animation-delay: var(--cloud-animation-offset);
+}
+
+.cloud-2 {
+  animation-delay: calc(2 * var(--cloud-animation-offset));
+}
+
+.cloud-3 {
+  animation-delay: calc(3 * var(--cloud-animation-offset));
+}
+
+.cloud-4 {
+  animation-delay: calc(4 * var(--cloud-animation-offset));
+}
+
+.cloud-5 {
+  animation-delay: calc(5 * var(--cloud-animation-offset));
 }
 
 .foreground {
