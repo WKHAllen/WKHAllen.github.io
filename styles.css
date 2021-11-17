@@ -16,6 +16,7 @@
   --cloud-animation-duration: calc(
     var(--cloud-num) * var(--cloud-animation-offset)
   );
+  --cloud-extension-size: 32px;
   --grass-color: #276d0b;
   --grass-opacity: 0.075;
   --grass-1-primary: hsla(103, 88%, 42%, var(--grass-opacity));
@@ -195,19 +196,19 @@ a:active {
 }
 
 .cloud:nth-child(4n) {
-  top: 10px;
+  top: 40px;
 }
 
 .cloud:nth-child(4n + 1) {
-  top: 30px;
+  top: 60px;
 }
 
 .cloud:nth-child(4n + 2) {
-  top: 20px;
+  top: 50px;
 }
 
 .cloud:nth-child(4n + 3) {
-  top: 40px;
+  top: 70px;
 }
 
 .cloud-title {
@@ -215,10 +216,21 @@ a:active {
   padding: 16px 16px 0 16px;
   margin: 0 48px;
   border-radius: 32px 32px 0 0;
-  display: inline-block;
   cursor: pointer;
   font-weight: bold;
   font-size: 1.1em;
+}
+
+.cloud-title::before {
+  content: "";
+  position: absolute;
+  top: calc(-1 * var(--cloud-extension-size));
+  right: 92px;
+  background-color: var(--cloud-color);
+  border-radius: var(--cloud-extension-size) var(--cloud-extension-size) 0 0;
+  width: calc(0.4 * var(--cloud-width));
+  height: var(--cloud-extension-size);
+  background-color: var(--cloud-color);
 }
 
 .cloud-body {
@@ -228,6 +240,17 @@ a:active {
   cursor: pointer;
   font-weight: normal;
   font-size: 0.95em;
+}
+
+.cloud-body::after {
+  content: "";
+  position: absolute;
+  bottom: calc(-1 * var(--cloud-extension-size));
+  left: 60px;
+  background-color: var(--cloud-color);
+  border-radius: 0 0 var(--cloud-extension-size) var(--cloud-extension-size);
+  width: calc(0.6 * var(--cloud-width));
+  height: var(--cloud-extension-size);
 }
 
 .cloud-1 {
