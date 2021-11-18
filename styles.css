@@ -1,6 +1,6 @@
 :root {
   --phi: 1.61803399;
-  --sky-color: #979ea0;
+  --sky-color: hsl(228, 63%, 66%);
   --sky-opacity: 0.0375;
   --sky-1-primary: hsla(195, 16%, 85%, var(--sky-opacity));
   --sky-1-secondary: hsla(196, 6%, 34%, var(--sky-opacity));
@@ -38,6 +38,7 @@
   --bush-base-height: 60px;
   --sway-amount: 5deg;
   --sway-translate: 25px;
+  --text-delay: 1s;
 }
 
 body {
@@ -271,6 +272,54 @@ a:active {
 
 .cloud-5 {
   animation-delay: calc(5 * var(--cloud-animation-offset));
+}
+
+.title {
+  position: absolute;
+  bottom: 8px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  color: white;
+  font-size: 1.2em;
+}
+
+.greeting {
+  opacity: 0;
+  animation: 0.5s ease 1s forwards fade-in;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.greeting-1 {
+  display: inline-block;
+  animation-delay: calc(var(--text-delay));
+}
+
+.greeting-2 {
+  display: inline-block;
+  animation-delay: calc(var(--text-delay) + 0.75s);
+}
+
+.name {
+  font-size: 2em;
+  font-weight: 500;
+  animation-delay: calc(var(--text-delay) + 1s);
+}
+
+.greeting-3 {
+  animation-delay: calc(var(--text-delay) + 2s);
 }
 
 .foreground {
