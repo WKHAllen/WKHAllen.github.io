@@ -68,6 +68,10 @@ a:active {
   color: #0000bf;
 }
 
+.device-warning {
+  display: none;
+}
+
 .landscape {
   width: 100vw;
   height: 100vh;
@@ -687,5 +691,29 @@ a:active {
 
   25.001% {
     transform: translateY(100vh);
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .device-warning {
+    display: block;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: rgb(0, 14, 96);
+    background: radial-gradient(circle, #000c4d 0%, #35118f 100%);
+    color: white;
+  }
+
+  .warning-message {
+    max-width: 50%;
+    font-size: 2em;
+  }
+
+  .landscape {
+    display: none;
   }
 }
