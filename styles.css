@@ -48,7 +48,7 @@
 
 body {
   margin: 0;
-  font-family: "Ubuntu", sans-serif;
+  font-family: "Zen Maru Gothic", sans-serif;
   user-select: none;
   background-color: black;
 }
@@ -325,7 +325,7 @@ a:active {
 }
 
 .greeting-3 {
-  animation-delay: calc(var(--text-delay) + 2s);
+  animation-delay: calc(var(--text-delay) + 2.5s);
 }
 
 .foreground {
