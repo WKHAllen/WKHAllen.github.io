@@ -9,7 +9,7 @@
   --sky-repeat-width: 5rem;
   --mountain-primary: #101214;
   --mountain-secondary: #5c656b;
-  --cloud-color: rgba(255, 255, 255, 0.5);
+  --cloud-color: rgba(255, 255, 255, 0.75);
   --cloud-width: 350px;
   --cloud-num: 5;
   --cloud-animation-offset: 15s;
@@ -39,6 +39,11 @@
   --sway-amount: 5deg;
   --sway-translate: 25px;
   --text-delay: 1s;
+  --info-text-shadow: 0 0 4px rgba(0, 0, 0, 0.75);
+  --info-text-shadow-bright: 0 0 8px rgba(150, 150, 150, 0.75);
+  --info-text-show-length: 10s;
+  --info-text-num: 4;
+  --info-text-delay: 5s;
 }
 
 body {
@@ -283,6 +288,7 @@ a:active {
   flex-direction: column;
   color: white;
   font-size: 1.2em;
+  text-shadow: var(--info-text-shadow);
 }
 
 .greeting {
@@ -609,4 +615,77 @@ a:active {
   top: 18%;
   animation-duration: calc((2 - var(--phi)) * 10s);
   animation-delay: calc((2 - var(--phi)) * 3 * 10s);
+}
+
+.info {
+  position: absolute;
+  top: 32px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: white;
+  text-shadow: var(--info-text-shadow);
+  font-size: 1.2em;
+  max-width: 40%;
+  line-height: 1.5;
+  display: grid;
+}
+
+.info a {
+  text-shadow: var(--info-text-shadow-bright);
+}
+
+.info-text {
+  grid-column: 1;
+  grid-row: 1;
+  transform: translateY(100vh);
+  opacity: 0;
+  animation: calc(var(--info-text-show-length) * var(--info-text-num)) ease 1s
+    infinite forwards show-info-text;
+}
+
+.info-text-1 {
+  animation-delay: var(--info-text-delay);
+  transform: none;
+}
+
+.info-text-2 {
+  animation-delay: calc(var(--info-text-show-length) + var(--info-text-delay));
+}
+
+.info-text-3 {
+  animation-delay: calc(
+    2 * var(--info-text-show-length) + var(--info-text-delay)
+  );
+}
+
+.info-text-4 {
+  animation-delay: calc(
+    3 * var(--info-text-show-length) + var(--info-text-delay)
+  );
+}
+
+@keyframes show-info-text {
+  0% {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+
+  1.25% {
+    opacity: 1;
+    transform: none;
+  }
+
+  23.75% {
+    opacity: 1;
+    transform: none;
+  }
+
+  25% {
+    opacity: 0;
+    transform: translateY(-16px);
+  }
+
+  25.001% {
+    transform: translateY(100vh);
+  }
 }
