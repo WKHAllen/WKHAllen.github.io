@@ -32,10 +32,10 @@
   --lake-shimmer-move-speed: 2;
   --wood-color: #553619;
   --leaf-color: #0b530b;
-  --bush-size: 40px;
-  --bush-width-coefficient: 1.5;
-  --bush-base-width: 10px;
-  --bush-base-height: 60px;
+  --tree-size: 40px;
+  --tree-width-coefficient: 1.5;
+  --tree-base-width: 10px;
+  --tree-base-height: 60px;
   --sway-amount: 5deg;
   --sway-translate: 25px;
   --text-delay: 1s;
@@ -361,99 +361,99 @@ a:active {
     );
 }
 
-.bush {
+.tree {
   position: absolute;
   background-color: var(--wood-color);
-  width: var(--bush-base-width);
-  height: var(--bush-base-height);
+  width: var(--tree-base-width);
+  height: var(--tree-base-height);
   border-radius: 100vw;
   animation: 20s ease-in-out 0s infinite sway;
 }
 
-.bush::before {
+.tree::before {
   content: "";
   position: absolute;
   background-color: var(--leaf-color);
-  width: var(--bush-size);
+  width: var(--tree-size);
   aspect-ratio: 1;
   border-radius: 50%;
-  top: calc(-0.5 * var(--bush-size));
-  left: calc(-0.5 * var(--bush-size) + 0.5 * var(--bush-base-width));
+  top: calc(-0.5 * var(--tree-size));
+  left: calc(-0.5 * var(--tree-size) + 0.5 * var(--tree-base-width));
 }
 
-.bush::after {
+.tree::after {
   content: "";
   position: absolute;
   background-color: var(--leaf-color);
-  width: calc(var(--bush-width-coefficient) * var(--bush-size));
-  height: var(--bush-size);
+  width: calc(var(--tree-width-coefficient) * var(--tree-size));
+  height: var(--tree-size);
   border-radius: 100vw;
   top: 0;
   left: calc(
-    -0.5 * var(--bush-width-coefficient) * var(--bush-size) + 0.5 * var(--bush-base-width)
+    -0.5 * var(--tree-width-coefficient) * var(--tree-size) + 0.5 * var(--tree-base-width)
   );
 }
 
-.bush-1 {
+.tree-1 {
   top: 46%;
   left: 4%;
   zoom: 1.25;
   animation-delay: 3s;
 }
 
-.bush-2 {
+.tree-2 {
   top: 13%;
   left: 9%;
   zoom: 0.8;
   animation-delay: 0s;
 }
 
-.bush-3 {
+.tree-3 {
   top: 38%;
   left: 14%;
   zoom: 1.1;
   animation-delay: 6s;
 }
 
-.bush-4 {
+.tree-4 {
   top: 20%;
   left: 22%;
   zoom: 1;
   animation-delay: 2s;
 }
 
-.bush-5 {
+.tree-5 {
   top: 16%;
   right: 20%;
   zoom: 1;
   animation-delay: 5s;
 }
 
-.bush-6 {
+.tree-6 {
   top: 25%;
   right: 11%;
   zoom: 1.2;
   animation-delay: 4s;
 }
 
-.bush-7 {
+.tree-7 {
   top: 11%;
   right: 3%;
   zoom: 0.85;
   animation-delay: 1s;
 }
 
-.bush-shadow {
+.tree-shadow {
   position: absolute;
-  bottom: calc(-0.25 * var(--bush-size));
-  left: calc(-0.5 * var(--bush-size) + 0.5 * var(--bush-base-width));
-  width: var(--bush-size);
-  height: calc(0.5 * var(--bush-size));
+  bottom: calc(-0.25 * var(--tree-size));
+  left: calc(-0.5 * var(--tree-size) + 0.5 * var(--tree-base-width));
+  width: var(--tree-size);
+  height: calc(0.5 * var(--tree-size));
   background-color: rgba(0, 0, 0, 0.375);
   border-radius: 50%;
   z-index: -1;
   transform: scale(0.8) rotate(-50deg)
-    translateX(calc(-0.5 * var(--bush-size) + 0.5 * var(--bush-base-width)));
+    translateX(calc(-0.5 * var(--tree-size) + 0.5 * var(--tree-base-width)));
   box-shadow: 0 0 12px 12px rgba(0, 0, 0, 0.375);
 }
 
@@ -694,26 +694,65 @@ a:active {
   }
 }
 
-@media screen and (max-width: 1000px) {
-  .device-warning {
-    display: block;
-    width: 100vw;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    background: rgb(0, 14, 96);
-    background: radial-gradient(circle, #000c4d 0%, #35118f 100%);
-    color: white;
-  }
-
-  .warning-message {
-    max-width: 50%;
-    font-size: 2em;
-  }
-
-  .landscape {
+@media screen and (max-width: 1000px),
+  screen and (max-height: 600px),
+  screen and (max-aspect-ratio: 11/7) {
+  .mountain {
     display: none;
+  }
+
+  @keyframes cloud-move {
+    0% {
+      left: calc(-1 * var(--cloud-width));
+    }
+
+    40% {
+      left: 100%;
+    }
+
+    100% {
+      left: 100%;
+    }
+  }
+
+  .cloud:nth-child(4n) {
+    top: 35px;
+  }
+
+  .cloud:nth-child(4n + 1) {
+    top: 45px;
+  }
+
+  .cloud:nth-child(4n + 2) {
+    top: 40px;
+  }
+
+  .cloud:nth-child(4n + 3) {
+    top: 50px;
+  }
+
+  .title {
+    white-space: nowrap;
+  }
+
+  .tree {
+    display: none;
+  }
+
+  .tree-1,
+  .tree-7 {
+    display: block;
+  }
+
+  .lake {
+    display: none;
+  }
+
+  .rock {
+    display: none;
+  }
+
+  .info {
+    max-width: 80%;
   }
 }
