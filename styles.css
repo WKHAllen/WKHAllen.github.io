@@ -40,7 +40,7 @@
   --sway-translate: 25px;
   --text-delay: 1s;
   --info-text-shadow: 0 0 4px rgba(0, 0, 0, 0.75);
-  --info-text-shadow-bright: 0 0 8px rgba(150, 150, 150, 0.75);
+  --info-text-shadow-bright: 0 0 8px white;
   --info-text-show-length: 10s;
   --info-text-num: 4;
   --info-text-delay: 5s;
