@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Data Transfer Protocol</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@200;300;400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/styles/atom-one-dark-reasonable.min.css"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/highlight.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="styles.css" />
+    <script type="text/javascript" src="script.js"></script>
+  </head>
+  <body>
+    <div class="content">
+      <div class="header">
+        <div class="title">
+          <div>Data</div>
+          <div>Transfer</div>
+          <div>Protocol</div>
+        </div>
+        <div class="subtitle">
+          Ergonomic network programming in any language.
+        </div>
+      </div>
+      <div class="main">
+        <section class="synopsis">
+          <p>
+            The Data Transfer Protocol is designed to be a flexible, often
+            asynchronous and event-based solution to all things involving
+            low-level networking. I learned from experience that establishing
+            higher-level socket interaction is a pain in just about any
+            language, so I went about writing easy-to-use networking APIs for as
+            many languages as I could.
+          </p>
+        </section>
+        <section class="info-with-example">
+          <div class="info">
+            <p>
+              The design of the protocol is tailored to the design of the
+              language in which it is implemented. This means that the usage of
+              the implementation will differ between languages, but the overall
+              capabilities will not be hindered, and will reflect that of the
+              language itself.
+            </p>
+          </div>
+          <div class="example">
+            <pre
+              class="example-code"
+            ><code class="language-rust">example1.rs</code></pre>
+            <p class="example-caption">
+              A DTP network server in Rust that accepts strings from clients and
+              returns the length of each string back.
+            </p>
+          </div>
+        </section>
+        <section class="info-with-example">
+          <div class="info">
+            <p>
+              The implementations themselves will not necessarily be compatible
+              with one another. For example, you would encounter errors
+              attempting to connect a client in the JavaScript implementation to
+              a server in the Go implementation. This is because each individual
+              language's implementation differs greatly, in order to support
+              features that make the most sense in the language (e.g.
+              language-specific serialization).
+            </p>
+          </div>
+          <div class="example">
+            <pre
+              class="example-code"
+            ><code class="language-typescript">example2.ts</code></pre>
+            <p class="example-caption">
+              A DTP network client in TypeScript that connects to a server and
+              logs all events that occur.
+            </p>
+          </div>
+        </section>
+        <section class="info-with-example">
+          <div class="info">
+            <p>
+              Batteries are included with DTP. Most implementations support
+              generic type parameters for sending and receiving data, as well as
+              serialization and information security. In implementations that
+              come with information security, each message sent over a network
+              interface is encrypted with AES-256. Key exchanges are performed
+              using either a 2048- or 4096-bit RSA key-pair, depending on the
+              implementation.
+            </p>
+          </div>
+          <div class="example">
+            <pre
+              class="example-code"
+            ><code class="language-java">example3.java</code></pre>
+            <p class="example-caption">
+              A DTP network server in Java. Note that in this implementation,
+              events are handled by extending the base
+              <code class="code-inline">Server</code> class.
+            </p>
+          </div>
+        </section>
+        <section class="implementations">
+          <p>
+            Additional details about specific implementations can be found
+            below. Please note the following:
+          </p>
+          <ul>
+            <li>
+              A status of "Complete" indicates that the implementation in
+              question is functional, but may still have undiscovered issues or
+              additional features planned.
+            </li>
+            <li>
+              The "Secure" column indicates whether an implementation comes with
+              information security included.
+            </li>
+          </ul>
+          <div class="impl-table-container">
+            <table class="impl-table">
+              <tr>
+                <th>Language</th>
+                <th>Status</th>
+                <th>Secure</th>
+                <th>Repo</th>
+              </tr>
+              <tr>
+                <td>C</td>
+                <td>Complete</td>
+                <td>No</td>
+                <td>
+                  <a href="https://github.com/WKHAllen/cdtp" target="_blank"
+                    >cdtp</a
+                  >
+                </td>
+              </tr>
+              <tr>
+                <td>C++</td>
+                <td>Complete</td>
+                <td>No</td>
+                <td>
+                  <a href="https://github.com/WKHAllen/cppdtp" target="_blank"
+                    >cppdtp</a
+                  >
+                </td>
+              </tr>
+              <tr>
+                <td>C#</td>
+                <td>Complete</td>
+                <td>No</td>
+                <td>
+                  <a href="https://github.com/WKHAllen/CSDTP" target="_blank"
+                    >CSDTP</a
+                  >
+                </td>
+              </tr>
+              <tr>
+                <td>Java</td>
+                <td>Complete</td>
+                <td>No</td>
+                <td>
+                  <a href="https://github.com/WKHAllen/JDTP" target="_blank"
+                    >JDTP</a
+                  >
+                </td>
+              </tr>
+              <tr>
+                <td>JavaScript/TypeScript</td>
+                <td>Complete</td>
+                <td>Yes</td>
+                <td>
+                  <a href="https://github.com/WKHAllen/dtp.js" target="_blank"
+                    >dtp.js</a
+                  >
+                </td>
+              </tr>
+              <tr>
+                <td>Python</td>
+                <td>Complete</td>
+                <td>Yes</td>
+                <td>
+                  <a href="https://github.com/WKHAllen/dtplib" target="_blank"
+                    >dtplib</a
+                  >
+                </td>
+              </tr>
+              <tr>
+                <td>Go</td>
+                <td>Complete</td>
+                <td>Yes</td>
+                <td>
+                  <a href="https://github.com/WKHAllen/godtp" target="_blank"
+                    >godtp</a
+                  >
+                </td>
+              </tr>
+              <tr>
+                <td>Rust</td>
+                <td>Complete</td>
+                <td>Yes</td>
+                <td>
+                  <a href="https://github.com/WKHAllen/rustdtp" target="_blank"
+                    >rustdtp</a
+                  >
+                </td>
+              </tr>
+            </table>
+          </div>
+        </section>
+        <section class="contact">
+          <p>
+            For any and all inquiries regarding the Data Transfer Protocol, feel
+            free to contact me at
+            <a href="mailto:wkhallen@gmail.com">wkhallen@gmail.com</a>.
+          </p>
+        </section>
+      </div>
+    </div>
+  </body>
+</html>
