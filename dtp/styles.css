@@ -6,7 +6,6 @@ body {
 
 body {
   margin: 0;
-  font-family: "Titillium Web", sans-serif;
 }
 
 a {
@@ -26,6 +25,30 @@ pre {
   margin: 0;
   border-radius: 6px;
   overflow: hidden;
+}
+
+code {
+  border-radius: 6px;
+}
+
+::-webkit-scrollbar {
+  width: 18px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: rgba(127, 127, 127, 0.5);
+  border-radius: 100vmin;
+  border: 6px solid transparent;
+  background-clip: padding-box;
+}
+
+::-webkit-scrollbar-thumb:hover,
+::-webkit-scrollbar-thumb:active {
+  background-color: rgba(127, 127, 127, 0.6);
 }
 
 .code-inline {
@@ -87,34 +110,38 @@ pre {
   font-size: 1.2em;
 }
 
-.info-with-example {
+.split {
   display: flex;
   flex-direction: row;
-  gap: 32px;
-  flex-wrap: wrap;
+  gap: 16px;
 }
 
-.info-with-example:nth-of-type(2n) {
-  flex-direction: row-reverse;
+.split > * {
+  flex: 50%;
 }
 
-.info-with-example .info {
+.impl-select,
+.impl-server,
+.impl-client {
+  margin-top: 24px;
+}
+
+.impl-server > div,
+.impl-client > div {
   display: flex;
   flex-direction: column;
-  flex: 1;
-  min-width: 300px;
+  overflow-x: auto;
 }
 
-.info-with-example .example {
+.impl-server > div > pre,
+.impl-client > div > pre {
+  flex: 1;
   display: flex;
-  flex-direction: column;
-  gap: 8px;
-  flex: 1;
 }
 
-.info-with-example .example .example-caption {
-  font-size: 1em;
-  color: #bfbfbf;
+.impl-server > div > pre > code,
+.impl-client > div > pre > code {
+  flex: 1;
 }
 
 .implementations {
@@ -123,7 +150,7 @@ pre {
   gap: 8px;
 }
 
-.impl-table-container {
+.impl-table-outer {
   margin-top: 24px;
   display: flex;
   justify-content: center;
@@ -131,12 +158,15 @@ pre {
   overflow-x: auto;
 }
 
-.impl-table {
-  text-align: left;
-  word-wrap: normal;
+.impl-table-inner {
   background-color: rgba(0, 0, 0, 0.2);
   border-radius: 5px;
   padding: 16px;
+}
+
+.impl-table {
+  text-align: left;
+  word-wrap: normal;
 }
 
 .impl-table th {

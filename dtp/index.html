@@ -3,12 +3,17 @@
   <head>
     <title>Data Transfer Protocol</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@200;300;400;600;700&display=swap"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css"
       rel="stylesheet"
+      integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx"
+      crossorigin="anonymous"
     />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
+      crossorigin="anonymous"
+    ></script>
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/styles/atom-one-dark-reasonable.min.css"
@@ -31,6 +36,7 @@
       </div>
       <div class="main">
         <section class="synopsis">
+          <h2>Synopsis</h2>
           <p>
             The Data Transfer Protocol is designed to be a flexible, often
             asynchronous and event-based solution to all things involving
@@ -40,72 +46,89 @@
             many languages as I could.
           </p>
         </section>
-        <section class="info-with-example">
-          <div class="info">
-            <p>
-              The design of the protocol is tailored to the design of the
-              language in which it is implemented. This means that the usage of
-              the implementation will differ between languages, but the overall
-              capabilities will not be hindered, and will reflect that of the
-              language itself.
-            </p>
-          </div>
-          <div class="example">
-            <pre
-              class="example-code"
-            ><code class="language-rust">example1.rs</code></pre>
-            <p class="example-caption">
-              A DTP network server in Rust that accepts strings from clients and
-              returns the length of each string back.
-            </p>
-          </div>
+        <section class="info">
+          <h2>Tailored to the language</h2>
+          <p>
+            The design of the protocol is made to fit the design of the language
+            in which it is implemented. This means that the usage of the
+            implementation will differ between languages, but the overall
+            capabilities will not be hindered, and will reflect that of the
+            language itself.
+          </p>
         </section>
-        <section class="info-with-example">
-          <div class="info">
-            <p>
-              The implementations themselves will not necessarily be compatible
-              with one another. For example, you would encounter errors
-              attempting to connect a client in the JavaScript implementation to
-              a server in the Go implementation. This is because each individual
-              language's implementation differs greatly, in order to support
-              features that make the most sense in the language (e.g.
-              language-specific serialization).
-            </p>
-          </div>
-          <div class="example">
-            <pre
-              class="example-code"
-            ><code class="language-typescript">example2.ts</code></pre>
-            <p class="example-caption">
-              A DTP network client in TypeScript that connects to a server and
-              logs all events that occur.
-            </p>
-          </div>
+        <section class="info">
+          <h2>Language-specific features</h2>
+          <p>
+            The implementations themselves will not necessarily be compatible
+            with one another. For example, you would encounter errors attempting
+            to connect a client in the JavaScript implementation to a server in
+            the Go implementation. This is because each individual language's
+            implementation differs greatly, in order to support features that
+            make the most sense in the language (e.g. language-specific
+            serialization).
+          </p>
         </section>
-        <section class="info-with-example">
-          <div class="info">
-            <p>
-              Batteries are included with DTP. Most implementations support
-              generic type parameters for sending and receiving data, as well as
-              serialization and information security. In implementations that
-              come with information security, each message sent over a network
-              interface is encrypted with AES-256. Key exchanges are performed
-              using either a 2048- or 4096-bit RSA key-pair, depending on the
-              implementation.
-            </p>
+        <section class="info">
+          <h2>Batteries included</h2>
+          <p>
+            Batteries are included with DTP. Most implementations support
+            dynamic or generic type parameters (depending on the language) for
+            sending and receiving data, as well as data serialization and
+            information security. In implementations that come with information
+            security, each message sent over a network interface is encrypted
+            with AES. Key exchanges are performed using RSA.
+          </p>
+        </section>
+        <section class="comparison">
+          <h2>Implementation comparison</h2>
+          <p>
+            Below is a set of examples in different languages. Note that
+            although the examples may appear very different from each other,
+            they all do roughly the same thing.
+          </p>
+          <div class="impl-select split">
+            <select
+              class="form-select"
+              id="impl-compare-left"
+              onchange="updateComparison(event.target, event.target.value)"
+            ></select>
+            <select
+              class="form-select"
+              id="impl-compare-right"
+              onchange="updateComparison(event.target, event.target.value)"
+            ></select>
           </div>
-          <div class="example">
-            <pre
-              class="example-code"
-            ><code class="language-java">example3.java</code></pre>
-            <p class="example-caption">
-              A DTP network server in Java. Note that in this implementation,
-              events are handled by extending the base
-              <code class="code-inline">Server</code> class.
-            </p>
+          <div class="impl-server split">
+            <div>
+              <h3>Server</h3>
+              <pre>
+                <code class="hljs"></code>
+              </pre>
+            </div>
+            <div>
+              <h3>Server</h3>
+              <pre>
+                <code class="hljs"></code>
+              </pre>
+            </div>
+          </div>
+          <div class="impl-client split">
+            <div>
+              <h3>Client</h3>
+              <pre>
+                <code class="hljs"></code>
+              </pre>
+            </div>
+            <div>
+              <h3>Client</h3>
+              <pre>
+                <code class="hljs"></code>
+              </pre>
+            </div>
           </div>
         </section>
         <section class="implementations">
+          <h2>Implementations</h2>
           <p>
             Additional details about specific implementations can be found
             below. Please note the following:
@@ -121,125 +144,129 @@
               information security included.
             </li>
           </ul>
-          <div class="impl-table-container">
-            <table class="impl-table">
-              <tr>
-                <th>Language</th>
-                <th>Status</th>
-                <th>Secure</th>
-                <th>Repository</th>
-              </tr>
-              <tr>
-                <td>C</td>
-                <td>Complete</td>
-                <td>No</td>
-                <td>
-                  <a href="https://github.com/WKHAllen/cdtp" target="_blank"
-                    >cdtp</a
-                  >
-                </td>
-              </tr>
-              <tr>
-                <td>C++</td>
-                <td>Complete</td>
-                <td>No</td>
-                <td>
-                  <a href="https://github.com/WKHAllen/cppdtp" target="_blank"
-                    >cppdtp</a
-                  >
-                </td>
-              </tr>
-              <tr>
-                <td>C#</td>
-                <td>Complete</td>
-                <td>No</td>
-                <td>
-                  <a href="https://github.com/WKHAllen/CSDTP" target="_blank"
-                    >CSDTP</a
-                  >
-                </td>
-              </tr>
-              <tr>
-                <td>Java</td>
-                <td>Complete</td>
-                <td>No</td>
-                <td>
-                  <a href="https://github.com/WKHAllen/JDTP" target="_blank"
-                    >JDTP</a
-                  >
-                </td>
-              </tr>
-              <tr>
-                <td>JavaScript/TypeScript</td>
-                <td>Complete</td>
-                <td>Yes</td>
-                <td>
-                  <a href="https://github.com/WKHAllen/dtp.js" target="_blank"
-                    >dtp.js</a
-                  >
-                </td>
-              </tr>
-              <tr>
-                <td>Python</td>
-                <td>Complete</td>
-                <td>Yes</td>
-                <td>
-                  <a href="https://github.com/WKHAllen/dtppy" target="_blank"
-                    >dtppy</a
-                  >
-                </td>
-              </tr>
-              <tr>
-                <td>Go</td>
-                <td>Complete</td>
-                <td>Yes</td>
-                <td>
-                  <a href="https://github.com/WKHAllen/godtp" target="_blank"
-                    >godtp</a
-                  >
-                </td>
-              </tr>
-              <tr>
-                <td>Rust</td>
-                <td>Complete</td>
-                <td>Yes</td>
-                <td>
-                  <a href="https://github.com/WKHAllen/rustdtp" target="_blank"
-                    >rustdtp</a
-                  >
-                </td>
-              </tr>
-              <tr>
-                <td>Lua</td>
-                <td>Planned</td>
-                <td></td>
-                <td></td>
-              </tr>
-              <tr>
-                <td>Nim</td>
-                <td>Planned</td>
-                <td></td>
-                <td></td>
-              </tr>
-              <tr>
-                <td>Ruby</td>
-                <td>Planned</td>
-                <td></td>
-                <td></td>
-              </tr>
-              <tr>
-                <td>Kotlin</td>
-                <td>Planned</td>
-                <td></td>
-                <td></td>
-              </tr>
-              <tr>
-                <td>Scala</td>
-                <td>Planned</td>
-                <td></td>
-                <td></td>
-              </tr>
-            </table>
+          <div class="impl-table-outer">
+            <div class="impl-table-inner">
+              <table class="impl-table">
+                <tr>
+                  <th>Language</th>
+                  <th>Status</th>
+                  <th>Secure</th>
+                  <th>Repository</th>
+                </tr>
+                <tr>
+                  <td>C</td>
+                  <td>Complete</td>
+                  <td>No</td>
+                  <td>
+                    <a href="https://github.com/WKHAllen/cdtp" target="_blank"
+                      >cdtp</a
+                    >
+                  </td>
+                </tr>
+                <tr>
+                  <td>C++</td>
+                  <td>Complete</td>
+                  <td>No</td>
+                  <td>
+                    <a href="https://github.com/WKHAllen/cppdtp" target="_blank"
+                      >cppdtp</a
+                    >
+                  </td>
+                </tr>
+                <tr>
+                  <td>C#</td>
+                  <td>Complete</td>
+                  <td>No</td>
+                  <td>
+                    <a href="https://github.com/WKHAllen/CSDTP" target="_blank"
+                      >CSDTP</a
+                    >
+                  </td>
+                </tr>
+                <tr>
+                  <td>Java</td>
+                  <td>Complete</td>
+                  <td>No</td>
+                  <td>
+                    <a href="https://github.com/WKHAllen/JDTP" target="_blank"
+                      >JDTP</a
+                    >
+                  </td>
+                </tr>
+                <tr>
+                  <td>JavaScript/TypeScript</td>
+                  <td>Complete</td>
+                  <td>Yes</td>
+                  <td>
+                    <a href="https://github.com/WKHAllen/dtp.js" target="_blank"
+                      >dtp.js</a
+                    >
+                  </td>
+                </tr>
+                <tr>
+                  <td>Python</td>
+                  <td>Complete</td>
+                  <td>Yes</td>
+                  <td>
+                    <a href="https://github.com/WKHAllen/dtppy" target="_blank"
+                      >dtppy</a
+                    >
+                  </td>
+                </tr>
+                <tr>
+                  <td>Go</td>
+                  <td>Complete</td>
+                  <td>Yes</td>
+                  <td>
+                    <a href="https://github.com/WKHAllen/godtp" target="_blank"
+                      >godtp</a
+                    >
+                  </td>
+                </tr>
+                <tr>
+                  <td>Rust</td>
+                  <td>Complete</td>
+                  <td>Yes</td>
+                  <td>
+                    <a
+                      href="https://github.com/WKHAllen/rustdtp"
+                      target="_blank"
+                      >rustdtp</a
+                    >
+                  </td>
+                </tr>
+                <tr>
+                  <td>Lua</td>
+                  <td>Planned</td>
+                  <td></td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>Nim</td>
+                  <td>Planned</td>
+                  <td></td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>Ruby</td>
+                  <td>Planned</td>
+                  <td></td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>Kotlin</td>
+                  <td>Planned</td>
+                  <td></td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>Scala</td>
+                  <td>Planned</td>
+                  <td></td>
+                  <td></td>
+                </tr>
+              </table>
+            </div>
           </div>
         </section>
         <section class="contact">
