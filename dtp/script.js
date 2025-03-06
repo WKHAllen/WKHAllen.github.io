@@ -31,6 +31,10 @@ const implementations = {
     name: "Rust",
     repo: "rustdtp",
   },
+  nim: {
+    name: "Nim",
+    repo: "nimdtp",
+  },
 };
 
 const implementationExamples = {};
@@ -55,9 +59,11 @@ function updateComparison(element, selected) {
 
   exampleServer.classList = "";
   exampleServer.classList.add("hljs", `language-${selected}`);
+  exampleServer.removeAttribute("data-highlighted");
   exampleServer.innerHTML = serverCode;
   exampleClient.classList = "";
   exampleClient.classList.add("hljs", `language-${selected}`);
+  exampleClient.removeAttribute("data-highlighted");
   exampleClient.innerHTML = clientCode;
   serverHeader.innerText = `${selectedName} server`;
   clientHeader.innerText = `${selectedName} client`;
