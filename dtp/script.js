@@ -35,6 +35,10 @@ const implementations = {
     name: "Nim",
     repo: "nimdtp",
   },
+  lua: {
+    name: "Lua",
+    repo: "luadtp",
+  },
 };
 
 const implementationExamples = {};
